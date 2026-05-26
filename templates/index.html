@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+    content="width=device-width, initial-scale=1.0">
+
+    <title>AI Car Assistant</title>
+
+    <link rel="stylesheet"
+    href="{{ url_for('static', filename='style.css') }}">
+
+    <link rel="preconnect"
+    href="https://fonts.googleapis.com">
+
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap"
+    rel="stylesheet">
+
+</head>
+
+<body>
+
+<div class="main-container">
+
+    <div class="sidebar">
+
+        <h2>🚘 AutoAI</h2>
+
+        <p>
+            Smart AI Car Recommendation Assistant
+        </p>
+
+        <div class="features">
+
+            <div class="feature-card">
+                ⚡ AI Powered
+            </div>
+
+            <div class="feature-card">
+                🛡️ Safety Analysis
+            </div>
+
+            <div class="feature-card">
+                ⛽ Fuel Optimization
+            </div>
+
+            <div class="feature-card">
+                📈 Mileage Intelligence
+            </div>
+
+        </div>
+
+    </div>
+
+    <div class="chat-container">
+
+        <div class="chat-header">
+
+            🤖 AI Car Consultant
+
+        </div>
+
+        <div id="chat-box"></div>
+
+        <div class="input-area">
+
+            <input type="text"
+            id="user-input"
+            placeholder="Ask for cars like: SUV under 20 lakh with ADAS">
+
+            <button onclick="sendMessage()">
+
+                Send
+
+            </button>
+
+        </div>
+
+    </div>
+
+</div>
+
+<script src="{{ url_for('static', filename='script.js') }}"></script>
+
+</body>
+
+</html>

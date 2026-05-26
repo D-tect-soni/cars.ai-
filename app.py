@@ -1,7 +1,7 @@
 from flask import Flask, render_template, request, jsonify
 import sqlite3
 import requests
-
+import os
 app = Flask(__name__)
 
 # =====================================================
@@ -296,14 +296,21 @@ def home():
 # OLLAMA AI CHATBOT
 # =====================================================
 
-@app.route('/chatbot', methods=['POST'])
-def chatbot():
-
-    try:
-
-        user_message = request.json['message']
-
-        print("USER:", user_message)
+# Replace the Ollama request block with:
+groq_response = requests.post(
+    "https://api.groq.com/openai/v1/chat/completions",
+    headers={
+        "Authorization": f"Bearer {os.environ.get('GROQ_API_KEY')}",
+        "Content-Type": "application/json"
+    },
+    json={
+        "model": "gemma2-9b-it",
+        "messages": [{"role": "user", "content": prompt}]
+    },
+    timeout=30
+)
+data = groq_response.json()
+ai_reply = data["choices"][0]["message"]["content"])
 
         # =====================================
         # GET CARS
